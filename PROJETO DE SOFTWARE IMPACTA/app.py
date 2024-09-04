@@ -17,15 +17,6 @@ app.secret_key = 'Foreveralone@123'
 def index():
     return render_template('index.html')
 
-#Testa a conexão com o banco de dados
-@app.route('/teste')
-def teste_conexao():
-    if conexao.is_connected():
-        cursor = conexao.cursor()
-        return render_template('teste_conexao.html')
-    conexao.close()
-    cursor.close()
-
 #Cadastra o formulário no banco de dados
 @app.route('/cadastrar', methods=["POST","GET"])
 def cadastrar():
