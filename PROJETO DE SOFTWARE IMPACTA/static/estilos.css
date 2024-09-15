@@ -1,14 +1,13 @@
 body {
     background-color: gray;
+    margin: 0;
 }
 
 .form {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -220px;
-    margin-top: -200px;
-    width: 380px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 420px;
     height: 380px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
@@ -16,51 +15,111 @@ body {
     border: 2px solid black;
 }
 
-h1 {
+.form h1 {
     text-align: center;
     font-family: verdana;
-	font-size: 18pt;
-	color: black;
+    font-size: 18pt;
+    color: black;
     margin-top: 2px;
 }
 
-#formulario {
+.formulario {
     font-size: 15pt;
     position: absolute;   
 }
 
-#formulario label {
+.formulario label {
     position: relative;
     top: 11px;
     font-style: italic;
 }
 
-#formulario input {
+.formulario input {
     position: absolute;
     left: 110px;
     margin-top: 2px;
-    width: 220px;
+    width: 290px;
     height: 30px;
 }
 
-button {
+.form_button{
     background-color: rgb(168, 168, 168);
     position: relative;
     font-size: 12pt;
     font-weight: bold;
     width: 130px;
     height: 40px;
-    margin-top: 130px;
-    margin-right: 67px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    position: relative;
+    margin-top: 130px;
 }
 
-#cadastrar:hover {
+#cadastrar, #salvar {
+    margin-right: 30px;
+}
+
+.btn_verde:hover {
     background-color: rgb(0, 255, 0);
 }
 
-#limpar:hover {
+.btn_vermelho:hover {
     background-color: rgb(252, 0, 0);
+}
+
+nav {
+    padding-bottom: 120px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f5e4e4;
+    font-size: 16pt;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: #f5e4e4;
+}
+
+li a:hover {
+    background-color: #444242;
+    color: white;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    width: calc(100% - 20px);
+    margin: 10px;
+    border-collapse: collapse;
+    background-color: #f5e4e4;
+    border: 2px solid black;
+   
+}
+
+th {
+    height: 50px;
+    font-size: 15pt;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
 }
