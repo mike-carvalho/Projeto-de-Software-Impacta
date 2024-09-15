@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+
+        <link rel="icon" href="../static/icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="../static/estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <title> Lista de Contatos </title>
+    </head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Cadastro de Contatos</a> </li>
+                <li><a href="{{ url_for('contatos') }}">Lista de Contatos</a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 style="text-align: center; font-family: verdana;">Lista de Contatos</h2>
+    <table border="1" id="lista-contatos">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+        {% for contato in dados %}
+        <tr>
+            <td>{{ contato[1] }}</td>
+            <td>{{ contato[2] }}</td>
+            <td>{{ contato[3] }}</td>
+            <td>
+                {% set id = contato[0] %}
+                <form class="excluirForm" action="deletar/{{ id }}" method="post" style="display: inline-block;">
+                    <button id="btn_deletar" type="submit" title="Excluir contato" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-trash-alt" style="font-size: 20px;"></i>
+                    </button>
+                </form>
+                <form class="editarForm" action="editar/{{ id }}" method="get" style="display: inline-block;">
+                    <button id="btn_editar" type="submit" title="Editar contato" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-edit" style="font-size: 20px;"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        document.querySelectorAll('.excluirForm').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            if (confirm("Você tem certeza que deseja excluir este contato?")) {
+                this.submit(); // Envia o formulário se o usuário confirmar
+                alert('Contato excluído com sucesso!');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
